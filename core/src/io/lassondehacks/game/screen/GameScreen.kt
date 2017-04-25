@@ -7,9 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage
 import io.lassondehacks.game.MainGame
 import io.lassondehacks.game.stages.GameStage
 
-/**
- * Created by richerarc on 2017-04-21.
- */
 class GameScreen(var game: MainGame) : Screen {
 
     private var gameStage: GameStage? = null
@@ -26,6 +23,7 @@ class GameScreen(var game: MainGame) : Screen {
         Gdx.gl.glClearColor(1f, 1f, 1f, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
+        this.gameStage?.act(delta)
         this.gameStage?.draw()
     }
 
