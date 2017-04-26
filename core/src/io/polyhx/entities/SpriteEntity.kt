@@ -27,7 +27,7 @@ open class SpriteEntity(texturePath: String) {
         this.bounds = Rectangle()
     }
 
-    fun draw(batch: Batch) {
+    open fun draw(batch: Batch) {
         this.bounds = Rectangle(this.position.x - this.origin.x, this.position.y - this.origin.y, this.sprite?.width!!, this.sprite?.height!!)
 
         this.sprite?.setPosition(this.position.x - this.origin.x, this.position.y - this.origin.y)

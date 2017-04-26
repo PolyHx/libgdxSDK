@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.Stage
 import io.polyhx.MainGame
+import io.polyhx.entities.AnimatedSpriteEntity
 import io.polyhx.entities.SpriteEntity
 import io.polyhx.utils.Constants
 
@@ -14,7 +15,7 @@ class GameStage(var game: MainGame) : Stage() {
     var entity: SpriteEntity? = null
 
     init {
-        this.entity = SpriteEntity("oiseau.png");
+        this.entity = AnimatedSpriteEntity("oiseaux.png", 2, 4)
     }
 
     override fun draw() {
