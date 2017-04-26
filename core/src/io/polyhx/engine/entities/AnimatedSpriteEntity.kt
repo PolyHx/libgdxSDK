@@ -1,4 +1,4 @@
-package io.polyhx.entities
+package io.polyhx.engine.entities
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.Array
-import io.polyhx.utils.Clock
+import io.polyhx.engine.utils.Clock
 
 class AnimatedSpriteEntity(texturePath: String, rowCount: Int, columnCount: Int) : SpriteEntity(texturePath) {
 
@@ -18,7 +18,7 @@ class AnimatedSpriteEntity(texturePath: String, rowCount: Int, columnCount: Int)
 
     init {
         var texture = Texture(Gdx.files.internal(texturePath))
-        var textures:Array<TextureRegion> = Array()
+        var textures: Array<TextureRegion> = Array()
         textureRegionW = texture.width / columnCount
         textureRegionH = texture.height / rowCount
         for (i in 0..rowCount * columnCount - 1) {

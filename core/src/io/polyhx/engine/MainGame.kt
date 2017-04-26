@@ -1,7 +1,7 @@
-package io.polyhx
+package io.polyhx.engine
 
 import com.badlogic.gdx.Game
-import io.polyhx.screen.GameScreen
+import io.polyhx.engine.screen.GameScreen
 
 class MainGame : Game() {
 
