@@ -8,8 +8,8 @@ import io.polyhx.engine.utils.Constants;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.width = Constants.Companion.getWIDTH();
-		config.height = Constants.Companion.getHEIGHT();
+		config.width = Constants.WIDTH;
+		config.height = Constants.HEIGHT;
 		new LwjglApplication(new MainGame(), config);
 	}
 }
