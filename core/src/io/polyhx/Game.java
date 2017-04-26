@@ -20,6 +20,7 @@ public class Game {
     private Clock clock;
     private final float spawnRate = 1.0f;
     private int scrollX;
+    private int scrollSpeed;
 
     public Game() {
         background = new SpriteEntity("scrollingBackground.png");
@@ -28,6 +29,7 @@ public class Game {
         bird = new AnimatedSpriteEntity("oiseaux.png", 2, 4);
         obstacles = new ArrayList<SpriteEntity>();
         scrollX = 0;
+        scrollSpeed = 2;
     }
 
     private void generateObstacle() {
@@ -52,6 +54,7 @@ public class Game {
             if (obstacles.get(i).getBounds().overlaps(bird.getBounds())) {
                 obstacles.remove(i);
                 i--;
+                scrollSpeed += scrollSpeed;
             }
 
             else if (obstacles.get(i).getPosition().y > Constants.HEIGHT) {
@@ -59,11 +62,11 @@ public class Game {
                 i--;
             }
         }
+        scrollX += scrollSpeed;
     }
 
     public void draw(Batch batch) {
 
-        scrollX += 10;
         batch.draw(background.getSprite().getTexture(), 0.0f, 0.0f, scrollX, 0, Constants.WIDTH, Constants.HEIGHT);
 
         for (SpriteEntity it: obstacles) {
