@@ -6,15 +6,15 @@ class Clock {
     private var lastTimeMs: Long = 0
 
     init {
-        this.lastTimeMs = com.badlogic.gdx.utils.TimeUtils.millis()
+        this.lastTimeMs = TimeUtils.millis()
     }
 
     val elapsedTime: Float
-        get() = (com.badlogic.gdx.utils.TimeUtils.millis() - lastTimeMs) / 1000f
+        get() = (TimeUtils.millis() - lastTimeMs) / 1000f
 
     fun restart(): Float {
         val elapsedTime = elapsedTime
-        lastTimeMs = com.badlogic.gdx.utils.TimeUtils.millis()
+        lastTimeMs = TimeUtils.millis()
         return elapsedTime
     }
 }

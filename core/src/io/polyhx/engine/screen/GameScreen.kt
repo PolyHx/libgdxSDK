@@ -1,9 +1,11 @@
 package io.polyhx.engine.screen
 
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.Screen
 import io.polyhx.engine.stages.GameStage
 import io.polyhx.engine.MainGame
 
-class GameScreen(var game: MainGame) : com.badlogic.gdx.Screen {
+class GameScreen(var game: MainGame) : Screen {
 
     private var gameStage: GameStage? = null
 
@@ -16,8 +18,8 @@ class GameScreen(var game: MainGame) : com.badlogic.gdx.Screen {
     }
 
     override fun render(delta: Float) {
-        com.badlogic.gdx.Gdx.gl.glClearColor(1f, 1f, 1f, 1f)
-        com.badlogic.gdx.Gdx.gl.glClear(com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT)
+        Gdx.gl.glClearColor(1f, 1f, 1f, 1f)
+        Gdx.gl.glClear(com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT)
 
         this.gameStage?.draw()
         this.gameStage?.act(delta)

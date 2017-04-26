@@ -28,7 +28,8 @@ class AnimatedSpriteEntity(texturePath: String, rowCount: Int, columnCount: Int)
             textures.add(TextureRegion(texture, x * textureRegionW, y * textureRegionH, textureRegionW, textureRegionH))
         }
         animation = Animation(0.05f, textures, Animation.PlayMode.LOOP)
-        this.origin = Vector2(textureRegionW.toFloat() / 2, textureRegionH.toFloat() / 2)
+        this.origin = Vector2(Math.floor((textureRegionW.toFloat() / 2).toDouble()).toFloat(),
+                Math.floor((textureRegionH.toFloat() / 2).toDouble()).toFloat())
         this.sprite?.setSize(textureRegionW.toFloat(), textureRegionH.toFloat())
     }
 
