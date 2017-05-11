@@ -1,7 +1,7 @@
 package io.polyhx;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import io.polyhx.engine.entities.AnimatedSpriteEntity;
 import io.polyhx.engine.entities.SpriteEntity;
@@ -10,7 +10,6 @@ import io.polyhx.engine.utils.Constants;
 import io.polyhx.engine.utils.Mouse;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Game {
 
@@ -63,6 +62,12 @@ public class Game {
             }
         }
         scrollX += scrollSpeed;
+
+        if (Mouse.isButtonClicked(Input.Buttons.RIGHT)) {
+            System.out.println("Right");
+        } else if (Mouse.isButtonClicked(Input.Buttons.LEFT)) {
+            System.out.println("Left");
+        }
     }
 
     public void draw(Batch batch) {
