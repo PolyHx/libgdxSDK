@@ -13,8 +13,6 @@ class AnimatedSpriteEntity(texturePath: String, rowCount: Int, columnCount: Int)
 
     var animation: Animation<TextureRegion>? = null
     var clock: Clock = Clock()
-    var textureRegionW: Int
-    var textureRegionH: Int
 
     init {
         var texture = Texture(Gdx.files.internal(texturePath))

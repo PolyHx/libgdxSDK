@@ -11,5 +11,10 @@ class Mouse {
         fun getPosition(): Vector2 {
             return Vector2(Gdx.input.getX(0).toFloat(), Constants.HEIGHT - Gdx.input.getY(0).toFloat())
         }
+
+        @JvmStatic
+        fun isButtonClicked(button: Int): Boolean {
+            return Gdx.input.isButtonPressed(button)
+        }
     }
 }
