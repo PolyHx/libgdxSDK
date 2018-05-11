@@ -16,9 +16,14 @@ class Label : Entity() {
         get
         set
 
+    fun setFontScale(scale: Float){
+        this.font.data.scale(scale)
+
+    }
+
     override fun draw(batch: Batch) {
-        this.font.color = this.color;
-        this.font.draw(batch, this.text, this.position.x, this.position.y);
+        this.font.color = this.color
+        this.font.draw(batch, this.text, this.position.x, this.position.y)
     }
 
 }
