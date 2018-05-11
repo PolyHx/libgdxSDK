@@ -15,13 +15,23 @@ class AnimatedSpriteEntity(texturePath: String, rowCount: Int, columnCount: Int)
     var clock: Clock = Clock()
 
     init {
-        var texture = Texture(Gdx.files.internal(texturePath))
-        var textures: Array<TextureRegion> = Array()
+        setTexture(texturePath, rowCount, columnCount);
+    }
+
+    override fun draw(batch: Batch) {
+        super.draw(batch)
+        val frame = animation?.getKeyFrame(this.clock.elapsedTime)
+        this.sprite?.setRegion(frame!!)
+    }
+
+    fun setTexture(texturePath: String, rowCount: Int, columnCount: Int) {
+        val texture = Texture(Gdx.files.internal(texturePath))
+        val textures: Array<TextureRegion> = Array()
         textureRegionW = texture.width / columnCount
         textureRegionH = texture.height / rowCount
-        for (i in 0..rowCount * columnCount - 1) {
-            var x: Int = i % columnCount
-            var y: Int = Math.floor(i / columnCount.toDouble()).toInt()
+        for (i in 0 until rowCount * columnCount) {
+            val x: Int = i % columnCount
+            val y: Int = Math.floor(i / columnCount.toDouble()).toInt()
 
             textures.add(TextureRegion(texture, x * textureRegionW, y * textureRegionH, textureRegionW, textureRegionH))
         }
@@ -31,9 +41,11 @@ class AnimatedSpriteEntity(texturePath: String, rowCount: Int, columnCount: Int)
         this.sprite?.setSize(textureRegionW.toFloat(), textureRegionH.toFloat())
     }
 
-    override fun draw(batch: Batch) {
-        super.draw(batch)
-        var frame = animation?.getKeyFrame(this.clock.elapsedTime)
-        this.sprite?.setRegion(frame!!)
+    fun pause() {
+        animation?.frameDuration = 0.0f
+    }
+
+    fun play() {
+        animation?.frameDuration = 0.05f
     }
 }
